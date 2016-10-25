@@ -48,3 +48,7 @@ Temporary Items
 
 # Node_modules
 node_modules/
+
+# JetBrains files
+.idea/
+.idea/jsLibraryMappings.xml
