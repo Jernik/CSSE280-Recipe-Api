@@ -19,7 +19,7 @@ router.route('/').post(function (req, res, next) { // CONSIDER: can add a next p
                     res.send('Problem registering.');
                 } else {
                     res.cookie('login', contact._id); //go ahead and log the user in too
-                    res.send("registered");
+                    res.send({"message":"registered"});
                 }
             });
         } else{
