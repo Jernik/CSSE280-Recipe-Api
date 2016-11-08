@@ -1,7 +1,8 @@
 var express = require('express');
 var mongoose = require("mongoose");
 var router = express.Router();
-var passwordHash=require('password-hash');
+var passwordHash=require('password-hash'),bodyParser = require('body-parser'), // parse info from POST
+    methodOverride = require('method-override');  // used to manipulate POST data
 
 /* GET users listing. */
 router.route('/').get(function(req, res, next) {
@@ -18,12 +19,6 @@ router.route('/').get(function(req, res, next) {
   });
 });
 
-var express = require('express'),
-    router = express.Router(),
-    mongoose = require('mongoose'), // mongodb connection
-    bodyParser = require('body-parser'), // parse info from POST
-    methodOverride = require('method-override');  // used to manipulate POST data
-
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(methodOverride(function (req, res) {
     if (req.body && typeof req.body == 'object' && '_method' in req.body) {
@@ -35,7 +30,7 @@ router.use(methodOverride(function (req, res) {
 
 // route middleware to validata :id
 router.param('id', function (req, res, next, id) {
-    mongoose.model('Contact').findById(id, function (err, contact) {
+    mongoose.model('Profile').findById(id, function (err, contact) {
         if (err || contact === null) {
             res.status(404);
             err = new Error('Not Found');
