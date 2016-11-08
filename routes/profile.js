@@ -4,8 +4,9 @@ var router = express.Router();
 var passwordHash=require('password-hash');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.route('/').get(function(req, res, next) {
   mongoose.model('Profile').find({}, function (err, profiles) {
+      console.log(err, profiles);
       if (err) {
           return console.log(err); // CONSIDER: Might want to call next with error.  can add status code and error message.
       } else {
@@ -19,6 +20,9 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.route("/:id").get();
+router.route("/:id").get( function (req, res, next) {
+    console.log(req.params.id);
+    res.send();
+});
 
 module.exports = router;
