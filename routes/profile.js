@@ -6,7 +6,6 @@ var passwordHash=require('password-hash');
 /* GET users listing. */
 router.route('/').get(function(req, res, next) {
   mongoose.model('Profile').find({}, function (err, profiles) {
-      console.log(err, profiles);
       if (err) {
           return console.log(err); // CONSIDER: Might want to call next with error.  can add status code and error message.
       } else {
