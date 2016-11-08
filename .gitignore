@@ -48,6 +48,7 @@ Temporary Items
 
 # Node_modules
 node_modules/
+npm-debug.log.*
 
 # JetBrains files
 .idea/
