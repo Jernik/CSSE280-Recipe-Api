@@ -16,9 +16,9 @@ router.route('/').post(function (req, res) { // CONSIDER: can add a next paramet
             console.log(req.body.passwordHash, profile.passwordHash);
             if (req.body.passwordHash === profile.passwordHash) {
                 res.cookie('login', profile._id);
-                res.send({"message":"logged in"});
+                res.send({"message":"logged in", "user":profile._id+""});
             }else{
-                res.send("Invalid password");
+                res.send({"message":"invalid password"});
             }
         }
     });
