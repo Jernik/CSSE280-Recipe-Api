@@ -30,5 +30,9 @@
     "morgan": "^1.7.0",
     "password-hash": "^1.2.2",
     "serve-favicon": "^2.3.0"
+  },
+  "engines":{
+    "node": "~6.4.0",
+    "npm": "3.10.7"
   }
 }
