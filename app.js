@@ -14,6 +14,7 @@ var login = require('./routes/login');
 var register = require('./routes/register');
 var message = require('./routes/message');
 var conversation = require('./routes/conversation');
+var recipe = require('./routes/recipe');
 //var contacts = require('./routes/contacts');
 
 var app = express();
@@ -37,6 +38,7 @@ app.use('/login', login);
 app.use('/register', register);
 app.use('/messages', message);
 app.use('/conversation', conversation);
+app.use('/recipes', recipe);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
